@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jeu Balançoire 3D</title>
+
+  <!-- Import map : remappe le specifier "three" vers la version module sur CDN -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.module.js"
+    }
+  }
+  </script>
+
+  <style>
+    body, html { margin:0; height:100%; background:#222; color:#fff; font-family:Arial, sans-serif; overflow:hidden; }
+    #menu {
+      position:absolute; inset:0; display:flex; align-items:center; justify-content:center; z-index:10;
+    }
+    #menu .box {
+      background:rgba(0,0,0,0.7); padding:20px; border-radius:10px; text-align:center;
+    }
+    button { margin:8px; padding:10px 18px; font-size:16px; border-radius:8px; border:none; cursor:pointer; background:#4cafef; color:#fff; }
+    button:active { transform:translateY(1px); }
+    /* canvas prendra tout l'écran via script (renderer.domElement) */
+  </style>
+</head>
+<body>
+  <div id="menu">
+    <div class="box">
+      <h2>Choisis ton avatar</h2>
+      <button id="btnGarcon">Shareef</button>
+      <button id="btnFille">Zeina</button>
+    </div>
+  </div>
+
+  <!-- Lancer le script principal (module) -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script type="module" src="./script.js"></script>
+</body>
+</html>
