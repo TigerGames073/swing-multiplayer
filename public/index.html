@@ -37,7 +37,51 @@
   </div>
 
   <!-- Lancer le script principal (module) -->
-  <script src="/socket.io/socket.io.js"></script>
   <script type="module" src="./script.js"></script>
+
+  <button id="btnVue" style="
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #bb86fc;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+  z-index: 20;
+  ">
+  🎥 
+
+  <button id="btnPush" class="push-btn">Pousser</button>
+  <style>
+  .push-btn {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 14px 22px;
+    font-size: 18px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #c084fc, #a855f7);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    z-index: 100;
+    display: none; /* caché par défaut */
+  }
+
+  .push-btn:active {
+    transform: translateX(-50%) scale(0.95);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  </style>
+
+  </button>
 </body>
 </html>
