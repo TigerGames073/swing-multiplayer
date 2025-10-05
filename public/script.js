@@ -1,11 +1,11 @@
-//const socket = io(); // se connecte automatiquement au serveur
+const socket = io(); // se connecte automatiquement au serveur
 import * as THREE from 'three'; 
 import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.157.0/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.157.0/examples/jsm/loaders/GLTFLoader.js';
 
-//socket.on('swing', (data) => {
- // angularVelocity += data.impulse;
-//});
+socket.on('swing', (data) => {
+  angularVelocity += data.impulse;
+});
 
 let scene, camera, renderer, controls, loader;
 let currentAvatar = null;
@@ -188,7 +188,7 @@ function loadBalancoire() {
     if (e.key.toLowerCase() === 'b' && playerGenre === 'garcon') {
       if (Math.abs(angle) < 0.05 && angularVelocity >= 0) {
         angularVelocity += impulseStrength;
-        //socket.emit('swing', { impulse: impulseStrength });
+        socket.emit('swing', { impulse: impulseStrength });
       }
     }
   });
@@ -198,7 +198,7 @@ function loadBalancoire() {
     if (playerGenre === 'garcon' && siegeBalancoire) {
       if (Math.abs(angle) < 0.05 && angularVelocity >= 0) {
         angularVelocity += impulseStrength;
-        //socket.emit('swing', { impulse: impulseStrength }); // si tu veux le réseau plus tard
+        socket.emit('swing', { impulse: impulseStrength }); // si tu veux le réseau plus tard
       }
     }
   });
